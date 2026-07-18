@@ -6,6 +6,7 @@ async function generateGlow() {
 
 
     let response = await fetch("data/skincare.json");
+
     let products = await response.json();
 
 
@@ -15,27 +16,41 @@ async function generateGlow() {
     );
 
 
-    if(recommendation){
+    let result = document.getElementById("result");
 
-        document.body.innerHTML += `
 
-        <div class="result">
+    if (recommendation) {
 
-        <h2>✨ ${name}'s Glow Plan</h2>
+        result.innerHTML = `
 
-        <h3>🧴 Skincare Recommendation</h3>
+        <div class="result-card">
 
-        <h4>${recommendation.name}</h4>
+        <h2>
+        ✨ ${name}'s Glow Plan
+        </h2>
+
+
+        <h3>
+        🧴 Skincare Recommendation
+        </h3>
+
+
+        <h4>
+        ${recommendation.name}
+        </h4>
+
 
         <p>
-        Category:
+        <strong>Category:</strong>
         ${recommendation.category}
         </p>
 
+
         <p>
-        Why:
+        <strong>Why:</strong>
         ${recommendation.description}
         </p>
+
 
         </div>
 
@@ -43,13 +58,25 @@ async function generateGlow() {
 
     }
 
-    else{
 
-        document.body.innerHTML += `
+    else {
+
+        result.innerHTML = `
+
+        <div class="result-card">
 
         <h2>
-        ✨ We are still building your personalized recommendations!
+        ✨ ${name}'s Glow Plan
         </h2>
+
+
+        <p>
+        We are still building your personalized recommendations.
+        Try another skin type or concern.
+        </p>
+
+
+        </div>
 
         `;
 
