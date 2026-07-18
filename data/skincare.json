@@ -1,0 +1,37 @@
+[
+  {
+    "name": "CeraVe Hydrating Facial Cleanser",
+    "type": "Dry",
+    "concern": "Dryness",
+    "category": "Cleanser",
+    "description": "Gentle cleanser with ceramides and hyaluronic acid for maintaining skin hydration."
+  },
+  {
+    "name": "La Roche-Posay Effaclar Purifying Foaming Cleanser",
+    "type": "Oily",
+    "concern": "Acne",
+    "category": "Cleanser",
+    "description": "Helps remove excess oil and impurities while supporting acne-prone skin."
+  },
+  {
+    "name": "The Ordinary Niacinamide 10% + Zinc 1%",
+    "type": "Oily",
+    "concern": "Dark Spots",
+    "category": "Serum",
+    "description": "Helps improve uneven skin tone and control excess oil."
+  },
+  {
+    "name": "Neutrogena Hydro Boost Water Gel",
+    "type": "Combination",
+    "concern": "Dryness",
+    "category": "Moisturizer",
+    "description": "Lightweight hydration with hyaluronic acid."
+  },
+  {
+    "name": "EltaMD UV Clear Sunscreen SPF 46",
+    "type": "Sensitive",
+    "concern": "None",
+    "category": "Sunscreen",
+    "description": "Lightweight sunscreen suitable for sensitive skin."
+  }
+]
