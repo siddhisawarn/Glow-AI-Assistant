@@ -1,51 +1,57 @@
-async function startProfile() {
+async function generateGlow() {
 
-    let name = prompt("What is your name?");
-
-    let skinType = prompt(
-        "What is your skin type?\nDry\nOily\nCombination\nSensitive"
-    );
-
-    let concern = prompt(
-        "What is your main skin concern?\nAcne\nDryness\nDark Spots\nNone"
-    );
-
-
-    localStorage.setItem(
-        "glowProfile",
-        JSON.stringify({
-            name: name,
-            skinType: skinType,
-            concern: concern
-        })
-    );
+    let name = document.getElementById("name").value;
+    let skinType = document.getElementById("skinType").value;
+    let concern = document.getElementById("concern").value;
 
 
     let response = await fetch("data/skincare.json");
     let products = await response.json();
 
 
-    let recommendation = products.find(
-        product =>
-        product.type.toLowerCase() === skinType.toLowerCase() &&
-        product.concern.toLowerCase() === concern.toLowerCase()
+    let recommendation = products.find(product =>
+        product.type === skinType &&
+        product.concern === concern
     );
 
 
     if(recommendation){
 
-        alert(
-            "✨ Glow Recommendation for " + name +
-            "\n\n🧴 Product: " + recommendation.name +
-            "\n\nCategory: " + recommendation.category +
-            "\n\nWhy: " + recommendation.description
-        );
+        document.body.innerHTML += `
 
-    } else {
+        <div class="result">
 
-        alert(
-            "✨ We are still building your personalized recommendations!"
-        );
+        <h2>✨ ${name}'s Glow Plan</h2>
+
+        <h3>🧴 Skincare Recommendation</h3>
+
+        <h4>${recommendation.name}</h4>
+
+        <p>
+        Category:
+        ${recommendation.category}
+        </p>
+
+        <p>
+        Why:
+        ${recommendation.description}
+        </p>
+
+        </div>
+
+        `;
+
+    }
+
+    else{
+
+        document.body.innerHTML += `
+
+        <h2>
+        ✨ We are still building your personalized recommendations!
+        </h2>
+
+        `;
 
     }
 
